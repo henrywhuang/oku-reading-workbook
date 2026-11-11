@@ -88,10 +88,16 @@ function renderPaper(p){
     for(const l of p.lines){
       if(p.images.some(i=>l.bbox[0]>=i.bbox[0]&&l.bbox[2]<=i.bbox[2]&&l.bbox[1]>=i.bbox[1]&&l.bbox[3]<=i.bbox[3]))continue;
       const el=document.createElement('span');el.className='ocr-line';el.textContent=l.text;el.dataset.line=l.id;
-      const b=l.bbox,font=Math.max(18,(b[3]-b[1])*.92),weight=l.bold?650:400;
+      const b=l.bbox,weight=l.bold?650:400;
+      // Skewed scan boxes include the slope of a whole line. Fit by text width
+      // as well as box height so that long lines cannot grow into their neighbors.
+      measure.font=`${weight} 100px Book`;
+      const widthFit=(b[2]-b[0])/(measure.measureText(l.text).width||1)*100;
+      const font=Math.max(18,Math.min((b[3]-b[1])*.92,widthFit));
       measure.font=`${weight} ${font}px Book`;
       const natural=measure.measureText(l.text).width||1, sx=(b[2]-b[0])/natural;
-      el.style.cssText=`left:${b[0]}px;top:${b[1]}px;font-size:${font}px;font-weight:${weight};transform:scaleX(${sx});`;
+      const top=b[1]+Math.max(0,(b[3]-b[1]-font)/2);
+      el.style.cssText=`left:${b[0]}px;top:${top}px;font-size:${font}px;font-weight:${weight};transform:scaleX(${sx});`;
       paper.append(el);
     }
   }
