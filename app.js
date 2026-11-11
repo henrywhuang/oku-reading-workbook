@@ -168,7 +168,7 @@ function listen(){
 }
 async function init(){
   try{
-    const response=await fetch('data/book.json');if(!response.ok)throw new Error('数据加载失败');book=await response.json();
+    const response=await fetch('data/book.json?v=proofread-20261111');if(!response.ok)throw new Error('数据加载失败');book=await response.json();
     pageMap=new Map(book.pages.map(p=>[p.id,p]));questionMap=new Map(book.questions.map(q=>[q.id,q]));articleMap=new Map(book.articles.map(a=>[a.id,a]));
     $('#book-stats').textContent=`${book.articles.length} 篇阅读 · ${book.questions.length} 道练习 · 96 页`;
     await document.fonts.load('400 20px Book');await document.fonts.load('650 20px Book');
