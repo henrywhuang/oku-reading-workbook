@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#245a4e">
+  <meta name="description" content="哈萨克语四年级阅读技能训练册。逐页阅读、原稿对照、题目定位与分类练习。">
+  <title>Оқу · 阅读技能训练册</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23245a4e'/%3E%3Cpath d='M14 17h14l4 4 4-4h14v32H36l-4 3-4-3H14z' fill='%23fff5df'/%3E%3Cpath d='M32 22v26' stroke='%23245a4e' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="menu-button" class="icon-button mobile-only" aria-label="打开目录">☰</button>
+    <a class="brand" href="#p=cover" aria-label="返回封面"><span class="brand-mark">О</span><span><b>Оқу<span class="brand-dot">.</span></b><small>阅读技能训练册</small></span></a>
+    <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="搜索篇目、文字，或输入「题目1」" aria-label="搜索全书"><kbd>/</kbd></div>
+    <span class="grade-badge">4 年级 · 哈萨克语</span>
+    <details class="downloads"><summary>导出 <span>↓</span></summary><div class="download-menu"><a href="data/ocr.json" download>完整 OCR JSON</a><a href="data/book.json" download>页面与题目索引 JSON</a><a href="data/document.md" download>Markdown 与图片引用</a><a href="data/document.txt" download>纯文字 TXT</a></div></details>
+    <button id="about-button" class="icon-button" aria-label="关于本书">ⓘ</button>
+  </header>
+  <div id="scrim" class="scrim" hidden></div>
+  <div class="workspace">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-heading"><span class="eyebrow">YOUR READING COMPANION</span><h1>一本书，慢慢读。</h1><p id="book-stats">正在整理书页…</p></div>
+      <nav class="tabs" aria-label="导航方式"><button class="active" data-tab="articles">篇目</button><button data-tab="questions">题目</button><button data-tab="pages">页面</button></nav>
+      <div id="filters" class="filters"></div>
+      <div id="nav-list" class="nav-list" aria-live="polite"></div>
+      <div class="sidebar-footer"><span class="status-dot"></span> 阅读进度自动保存在此设备</div>
+    </aside>
+    <main class="reader">
+      <div class="reader-heading"><div><div id="breadcrumb" class="eyebrow">打开一本书</div><h2 id="page-title">Оқу техникасы</h2></div><div class="view-switch" aria-label="阅读视图"><button data-mode="h5" class="active">重建版</button><button data-mode="flow">易读版</button><button data-mode="scan">原稿</button></div></div>
+      <div class="paper-scroll" id="paper-scroll"><div id="loading" class="loading"><span class="loading-book">▤</span><p>正在打开阅读册…</p></div><div id="stage" class="stage" hidden></div><article id="flow" class="flow" hidden></article></div>
+      <footer class="reader-footer"><button id="prev" class="page-turn" aria-label="上一页">← <span>上一页</span></button><div class="page-location"><label>书页 <input id="page-jump" inputmode="numeric" aria-label="跳转到书页" value="封面"></label><span id="page-total">/ 96</span><small id="source-label"></small></div><div class="zoom-controls"><button id="zoom-out" aria-label="缩小">−</button><button id="zoom-reset" aria-label="恢复适宽">适宽</button><button id="zoom-in" aria-label="放大">＋</button></div><button id="next" class="page-turn"><span>下一页</span> →</button></footer>
+    </main>
+    <aside class="context-panel" id="context-panel"></aside>
+  </div>
+  <dialog id="about"><button class="dialog-close icon-button" aria-label="关闭说明">×</button><span class="eyebrow">ABOUT THIS EDITION</span><h2>让每一次阅读，都找得到方向。</h2><p>本书由《阅读技能训练册2023（4）_Өлке》50 张双页扫描整理，包含 96 个内页及封面、封底。点击题目即可定位原文，也可按篇目、主题或练习类型查找。</p><p>重建版使用 HTML 文字、Noto Sans 字体、独立图片和线条恢复版面。原扫描没有嵌入字体，因此字体为视觉近似。OCR 使用本地 PP-OCRv5，部分哈萨克语特殊字母和小字可能有误，请结合「原稿」核对。</p><p>题目与主题标签为辅助导航，不是标准答案。空白答题区保留，本站不自动生成答案。</p><div class="about-meta"><span>本地 OCR</span><span>无账户 · 无追踪</span><span>字库：SIL OFL</span></div><a href="assets/fonts/OFL.txt" target="_blank" rel="noopener">字体许可</a></dialog>
+</body>
+</html>
