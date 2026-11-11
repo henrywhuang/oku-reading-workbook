@@ -118,7 +118,11 @@ function renderFlow(p){
     if(qLines.has(l.id)||p.images.some(i=>l.bbox[0]>=i.bbox[0]&&l.bbox[2]<=i.bbox[2]&&l.bbox[1]>=i.bbox[1]&&l.bbox[3]<=i.bbox[3])){paragraph=null;last=null;continue;}
     if(l.role==='number'&&l.bbox[1]>p.height*.9)continue;
     const gap=last?l.bbox[1]-last.bbox[3]:100;
-    if(!paragraph||l.bold||last?.bold||gap>(l.bbox[3]-l.bbox[1])*.7){paragraph={y:l.bbox[1],type:l.bold?'heading':'text',text:l.text};items.push(paragraph);}else{paragraph.text=paragraph.text.endsWith('-')?paragraph.text.slice(0,-1)+l.text:paragraph.text+' '+l.text;}
+    if(!paragraph||l.bold||last?.bold||gap>(l.bbox[3]-l.bbox[1])*.7){paragraph={y:l.bbox[1],type:l.bold?'heading':'text',text:l.text};items.push(paragraph);}else{
+      // Numeric ranges retain the printed hyphen when two scan lines join.
+      if(paragraph.text.endsWith('-'))paragraph.text=/\d-$/.test(paragraph.text)&&/^\d/.test(l.text)?paragraph.text+l.text:paragraph.text.slice(0,-1)+l.text;
+      else paragraph.text+=' '+l.text;
+    }
     last=l;
   }
   items.sort((a,b)=>a.y-b.y);
@@ -168,7 +172,7 @@ function listen(){
 }
 async function init(){
   try{
-    const response=await fetch('data/book.json?v=proofread-20261111');if(!response.ok)throw new Error('数据加载失败');book=await response.json();
+    const response=await fetch('data/book.json?v=proofread2-20261111');if(!response.ok)throw new Error('数据加载失败');book=await response.json();
     pageMap=new Map(book.pages.map(p=>[p.id,p]));questionMap=new Map(book.questions.map(q=>[q.id,q]));articleMap=new Map(book.articles.map(a=>[a.id,a]));
     $('#book-stats').textContent=`${book.articles.length} 篇阅读 · ${book.questions.length} 道练习 · 96 页`;
     await document.fonts.load('400 20px Book');await document.fonts.load('650 20px Book');

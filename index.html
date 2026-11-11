@@ -8,7 +8,7 @@
   <title>Оқу · 阅读技能训练册</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23245a4e'/%3E%3Cpath d='M14 17h14l4 4 4-4h14v32H36l-4 3-4-3H14z' fill='%23fff5df'/%3E%3Cpath d='M32 22v26' stroke='%23245a4e' stroke-width='3'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
-  <script defer src="app.js?v=proofread-20261111-r2"></script>
+  <script defer src="app.js?v=proofread2-20261111-r2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -16,7 +16,7 @@
     <a class="brand" href="#p=cover" aria-label="返回封面"><span class="brand-mark">О</span><span><b>Оқу<span class="brand-dot">.</span></b><small>阅读技能训练册</small></span></a>
     <div class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="搜索篇目、文字，或输入「题目1」" aria-label="搜索全书"><kbd>/</kbd></div>
     <span class="grade-badge">4 年级 · 哈萨克语</span>
-    <details class="downloads"><summary>导出 <span>↓</span></summary><div class="download-menu"><a href="data/ocr.json?v=proofread-20261111" download>校正版 OCR JSON</a><a href="data/ocr-original.json" download>原始 OCR JSON</a><a href="data/proofreading.json" download>逐行校对记录 JSON</a><a href="data/book.json?v=proofread-20261111" download>页面与题目索引 JSON</a><a href="data/document.md?v=proofread-20261111" download>校正版 Markdown</a><a href="data/document.txt?v=proofread-20261111" download>校正版 TXT</a></div></details>
+    <details class="downloads"><summary>导出 <span>↓</span></summary><div class="download-menu"><a href="data/ocr.json?v=proofread2-20261111" download>校正版 OCR JSON</a><a href="data/ocr-original.json" download>原始 OCR JSON</a><a href="data/proofreading.json" download>逐行校对记录 JSON</a><a href="data/book.json?v=proofread2-20261111" download>页面与题目索引 JSON</a><a href="data/document.md?v=proofread2-20261111" download>校正版 Markdown</a><a href="data/document.txt?v=proofread2-20261111" download>校正版 TXT</a></div></details>
     <button id="about-button" class="icon-button" aria-label="关于本书">ⓘ</button>
   </header>
   <div id="scrim" class="scrim" hidden></div>
@@ -35,6 +35,6 @@
     </main>
     <aside class="context-panel" id="context-panel"></aside>
   </div>
-  <dialog id="about"><button class="dialog-close icon-button" aria-label="关闭说明">×</button><span class="eyebrow">ABOUT THIS EDITION</span><h2>让每一次阅读，都找得到方向。</h2><p>本书由《阅读技能训练册2023（4）_Өлке》50 张双页扫描整理，包含 96 个内页及封面、封底。点击题目即可定位原文，也可按篇目、主题或练习类型查找。</p><p>重建版使用 HTML 文字、Noto Sans 字体、独立图片和线条恢复版面。原扫描没有嵌入字体，因此字体为视觉近似。</p><p>本地 PP-OCRv5 识别后，已完成一轮分组语义校对，并逐条对照原图复核修正建议：修改 895 行文字、清除 25 行噪声、补回 11 行漏识别内容。导出菜单保留原始数据与逐行校对记录。仍可能有漏检，请结合「原稿」核对。</p><p>题目与主题标签为辅助导航，不是标准答案。空白答题区保留，本站不自动生成答案。</p><div class="about-meta"><span>原图复核</span><span>无账户 · 无追踪</span><span>字库：SIL OFL</span></div><a href="assets/fonts/OFL.txt" target="_blank" rel="noopener">字体许可</a></dialog>
+  <dialog id="about"><button class="dialog-close icon-button" aria-label="关闭说明">×</button><span class="eyebrow">ABOUT THIS EDITION</span><h2>让每一次阅读，都找得到方向。</h2><p>本书由《阅读技能训练册2023（4）_Өлке》50 张双页扫描整理，包含 96 个内页及封面、封底。点击题目即可定位原文，也可按篇目、主题或练习类型查找。</p><p>重建版使用 HTML 文字、Noto Sans 字体、独立图片和线条恢复版面。原扫描没有嵌入字体，因此字体为视觉近似。</p><p lang="kk">Жергілікті PP-OCRv5 нәтижесі екі кезеңде тексерілді. Екінші кезеңде бұрынғы әңгімені көрмеген үш агент тек қазақша нұсқаумен жұмыс істеді; әр ұсыныс түпнұсқамен қайта салыстырылды. Осы кезеңде 143 жол нақтыланды, негізгі мәтінге жатпайтын 46 жазба алынды және 3 түсіп қалған жол қосылды. 4 күмәнді орын бастапқы күйінде сақталып, есепте белгіленді. Бастапқы OCR мен өзгерістер тарихы жүктеу мәзірінде бар.</p><p>题目与主题标签为辅助导航，不是标准答案。空白答题区保留，本站不自动生成答案。</p><div class="about-meta"><span>原图复核</span><span>无账户 · 无追踪</span><span>字库：SIL OFL</span></div><a href="assets/fonts/OFL.txt" target="_blank" rel="noopener">字体许可</a></dialog>
 </body>
 </html>
